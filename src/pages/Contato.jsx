@@ -2,11 +2,12 @@ import React from "react";
 
 export default function Contato() {
   return (
-    <div>
-      <h1 className="text-2xl font-bold text-brand mb-4">Contato</h1>
-      <p>Email: contato@contrat.com.br</p>
-      <p>Telefone: (16) 99999-9999</p>
-      <p>Endereço: Ribeirão Preto - SP</p>
+    <div className="space-y-4">
+      <h1 className="text-2xl font-bold text-brand">Contato</h1>
+      <p><strong>Endereço:</strong> Rua Major Claudiano, 1640, centro, Franca SP</p>
+      <p><strong>Telefone:</strong> (16) 99222-1194</p>
+      <p><strong>E-mail:</strong> contratrhdp@gmail.com.br</p>
+      <p><strong>Redes sociais:</strong> @contratrhdp</p>
     </div>
   );
 }

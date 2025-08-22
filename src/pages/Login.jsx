@@ -18,21 +18,9 @@ export default function Login() {
     <div className="flex justify-center items-center min-h-screen">
       <div className="p-6 border rounded shadow w-80 bg-white">
         <h1 className="text-xl font-bold text-brand mb-4">Login</h1>
-        <input
-          type="text"
-          placeholder="Usuário"
-          value={user}
-          onChange={(e) => setUser(e.target.value)}
-          className="w-full border p-2 mb-2 rounded"
-        />
-        <input
-          type="password"
-          placeholder="Senha"
-          value={pass}
-          onChange={(e) => setPass(e.target.value)}
-          className="w-full border p-2 mb-4 rounded"
-        />
-        <button onClick={handleLogin} className="w-full bg-brand text-white py-2 rounded">Entrar</button>
+        <input type="text" placeholder="Usuário" value={user} onChange={(e) => setUser(e.target.value)} className="w-full border p-2 mb-2 rounded" />
+        <input type="password" placeholder="Senha" value={pass} onChange={(e) => setPass(e.target.value)} className="w-full border p-2 mb-4 rounded" />
+        <button onClick={handleLogin} className="w-full bg-brand text-white py-2 rounded hover:bg-blue-900">Entrar</button>
       </div>
     </div>
   );

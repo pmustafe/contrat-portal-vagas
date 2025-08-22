@@ -13,15 +13,9 @@ export default function Admin() {
   });
 
   const adicionarVaga = () => {
+    if (!novaVaga.titulo) return alert("Preencha o título");
     setVagas([...vagas, novaVaga]);
-    setNovaVaga({
-      titulo: "",
-      descricao: "",
-      competencias: "",
-      salario: "",
-      beneficios: "",
-      status: "Disponível",
-    });
+    setNovaVaga({ titulo: "", descricao: "", competencias: "", salario: "", beneficios: "", status: "Disponível" });
   };
 
   const removerVaga = (i) => {
@@ -49,7 +43,7 @@ export default function Admin() {
         {vagas.map((vaga, i) => (
           <li key={i} className="border p-4 rounded bg-white shadow flex justify-between items-center">
             <span>{vaga.titulo} - {vaga.status}</span>
-            <button onClick={() => removerVaga(i)} className="text-red-600 font-bold">Remover</button>
+            <button onClick={() => removerVaga(i)} className="bg-red-600 text-white px-3 py-1 rounded">Remover</button>
           </li>
         ))}
       </ul>

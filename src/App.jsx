@@ -13,46 +13,11 @@ export const VagasContext = React.createContext();
 
 export default function App() {
   const [vagas, setVagas] = useState([
-    {
-      titulo: "Auxiliar Administrativo",
-      descricao: "Atendimento, organização de documentos, apoio a rotinas administrativas.",
-      competencias: "Pacote Office, boa comunicação.",
-      salario: "R$ 2.000",
-      beneficios: "Vale Transporte, Vale Refeição.",
-      status: "Disponível"
-    },
-    {
-      titulo: "Vendedor",
-      descricao: "Atendimento ao cliente, prospecção de novos negócios, metas de vendas.",
-      competencias: "Boa comunicação, técnicas de vendas.",
-      salario: "A combinar",
-      beneficios: "Comissão, bônus de desempenho.",
-      status: "Disponível"
-    },
-    {
-      titulo: "Analista de Marketing",
-      descricao: "Planejamento de campanhas digitais, redes sociais e relatórios.",
-      competencias: "Google Ads, Meta Ads, análise de métricas.",
-      salario: "R$ 3.500",
-      beneficios: "Plano de saúde, VR.",
-      status: "Disponível"
-    },
-    {
-      titulo: "Desenvolvedor Frontend",
-      descricao: "Desenvolvimento de interfaces responsivas em React.",
-      competencias: "React, Tailwind, Git.",
-      salario: "R$ 5.000",
-      beneficios: "Home office, VR, plano de saúde.",
-      status: "Disponível"
-    },
-    {
-      titulo: "Motorista",
-      descricao: "Transporte de pessoas e pequenas cargas.",
-      competencias: "CNH categoria B, experiência prévia.",
-      salario: "R$ 2.200",
-      beneficios: "Vale Alimentação, plano de saúde.",
-      status: "Indisponível"
-    }
+    { titulo: "Auxiliar Administrativo", descricao: "Atendimento e apoio a rotinas administrativas.", competencias: "Pacote Office, boa comunicação.", salario: "R$ 2.000", beneficios: "Vale Transporte, Vale Refeição", status: "Disponível" },
+    { titulo: "Vendedor", descricao: "Atendimento ao cliente, prospecção de novos negócios.", competencias: "Boa comunicação, técnicas de vendas.", salario: "A combinar", beneficios: "Comissão, bônus", status: "Disponível" },
+    { titulo: "Analista de Marketing", descricao: "Planejamento de campanhas digitais e redes sociais.", competencias: "Google Ads, Meta Ads", salario: "R$ 3.500", beneficios: "Plano de saúde, VR", status: "Disponível" },
+    { titulo: "Desenvolvedor Frontend", descricao: "Desenvolvimento de interfaces em React.", competencias: "React, Tailwind, Git", salario: "R$ 5.000", beneficios: "Home office, VR, plano de saúde", status: "Disponível" },
+    { titulo: "Motorista", descricao: "Transporte de pessoas e pequenas cargas.", competencias: "CNH B, experiência", salario: "R$ 2.200", beneficios: "VA, plano de saúde", status: "Indisponível" }
   ]);
 
   return (
