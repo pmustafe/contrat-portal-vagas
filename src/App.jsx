@@ -1,97 +1,76 @@
 import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Sobre from "./pages/Sobre";
+import Vagas from "./pages/Vagas";
+import Contato from "./pages/Contato";
+import Login from "./pages/Login";
+import Admin from "./pages/Admin";
+
+export const VagasContext = React.createContext();
 
 export default function App() {
-  const [logged, setLogged] = useState(false);
-  const [user, setUser] = useState("");
-  const [pass, setPass] = useState("");
-  const [vagas, setVagas] = useState([]);
-  const [novaVaga, setNovaVaga] = useState("");
-
-  const login = () => {
-    if (user === "admin" && pass === "admin2024") {
-      setLogged(true);
-    } else {
-      alert("Usuário ou senha incorretos");
+  const [vagas, setVagas] = useState([
+    {
+      titulo: "Auxiliar Administrativo",
+      descricao: "Atendimento, organização de documentos, apoio a rotinas administrativas.",
+      competencias: "Pacote Office, boa comunicação.",
+      salario: "R$ 2.000",
+      beneficios: "Vale Transporte, Vale Refeição.",
+      status: "Disponível"
+    },
+    {
+      titulo: "Vendedor",
+      descricao: "Atendimento ao cliente, prospecção de novos negócios, metas de vendas.",
+      competencias: "Boa comunicação, técnicas de vendas.",
+      salario: "A combinar",
+      beneficios: "Comissão, bônus de desempenho.",
+      status: "Disponível"
+    },
+    {
+      titulo: "Analista de Marketing",
+      descricao: "Planejamento de campanhas digitais, redes sociais e relatórios.",
+      competencias: "Google Ads, Meta Ads, análise de métricas.",
+      salario: "R$ 3.500",
+      beneficios: "Plano de saúde, VR.",
+      status: "Disponível"
+    },
+    {
+      titulo: "Desenvolvedor Frontend",
+      descricao: "Desenvolvimento de interfaces responsivas em React.",
+      competencias: "React, Tailwind, Git.",
+      salario: "R$ 5.000",
+      beneficios: "Home office, VR, plano de saúde.",
+      status: "Disponível"
+    },
+    {
+      titulo: "Motorista",
+      descricao: "Transporte de pessoas e pequenas cargas.",
+      competencias: "CNH categoria B, experiência prévia.",
+      salario: "R$ 2.200",
+      beneficios: "Vale Alimentação, plano de saúde.",
+      status: "Indisponível"
     }
-  };
-
-  const adicionarVaga = () => {
-    if (novaVaga.trim()) {
-      setVagas([...vagas, novaVaga]);
-      setNovaVaga("");
-    }
-  };
-
-  const removerVaga = (index) => {
-    setVagas(vagas.filter((_, i) => i !== index));
-  };
-
-  if (!logged) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-light">
-        <div className="p-6 border rounded-lg shadow w-80 bg-white">
-          <h1 className="text-xl font-bold text-brand mb-4">Login</h1>
-          <input
-            type="text"
-            placeholder="Usuário"
-            value={user}
-            onChange={(e) => setUser(e.target.value)}
-            className="w-full border p-2 mb-2 rounded"
-          />
-          <input
-            type="password"
-            placeholder="Senha"
-            value={pass}
-            onChange={(e) => setPass(e.target.value)}
-            className="w-full border p-2 mb-4 rounded"
-          />
-          <button
-            onClick={login}
-            className="w-full bg-brand text-white py-2 rounded"
-          >
-            Entrar
-          </button>
-        </div>
-      </div>
-    );
-  }
+  ]);
 
   return (
-    <div className="min-h-screen bg-light p-6">
-      <h1 className="text-2xl font-bold text-brand mb-4">Painel de Vagas</h1>
-
-      <div className="flex mb-4">
-        <input
-          type="text"
-          placeholder="Nova vaga"
-          value={novaVaga}
-          onChange={(e) => setNovaVaga(e.target.value)}
-          className="flex-grow border p-2 rounded-l"
-        />
-        <button
-          onClick={adicionarVaga}
-          className="bg-brand text-white px-4 rounded-r"
-        >
-          Adicionar
-        </button>
+    <VagasContext.Provider value={{ vagas, setVagas }}>
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-grow container mx-auto px-4 py-6">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/sobre" element={<Sobre />} />
+            <Route path="/vagas" element={<Vagas />} />
+            <Route path="/contato" element={<Contato />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/admin" element={<Admin />} />
+          </Routes>
+        </main>
+        <Footer />
       </div>
-
-      <ul className="space-y-2">
-        {vagas.map((vaga, i) => (
-          <li
-            key={i}
-            className="flex justify-between items-center border p-2 rounded bg-white shadow"
-          >
-            <span>{vaga}</span>
-            <button
-              onClick={() => removerVaga(i)}
-              className="text-red-600 font-bold"
-            >
-              X
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
+    </VagasContext.Provider>
   );
 }
