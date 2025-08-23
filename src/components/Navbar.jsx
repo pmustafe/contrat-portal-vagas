@@ -11,7 +11,7 @@ export default function Navbar() {
     <nav className="bg-gradient-to-r from-brand to-blue-900 text-white p-4 shadow-md sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
         <a href="/" className="flex items-center space-x-3">
-          <img src="https://i.ibb.co/R5pm9P0/Logo.png" alt="Logo Contrat" className="h-10 w-auto" />
+          <img src="https://i.ibb.co/ycMK8rMc/logo.png" alt="Logo Contrat" className="h-10 w-auto" />
         </a>
         <div className="flex gap-1 font-medium">
           <Link to="/" className={linkCls(pathname === "/")}>Início</Link>
