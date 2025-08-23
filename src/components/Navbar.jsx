@@ -1,20 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+
+const linkCls = (active) =>
+  "px-3 py-2 rounded-md transition " +
+  (active ? "bg-white/10" : "hover:bg-white/10");
 
 export default function Navbar() {
+  const { pathname } = useLocation();
   return (
-    <nav className="bg-brand text-white p-4 shadow-md">
+    <nav className="bg-gradient-to-r from-brand to-blue-900 text-white p-4 shadow-md sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="flex items-center space-x-2">
-          <img src="/logo.png" alt="Logo" className="h-8 w-8" />
-          <span className="font-bold text-lg">Contrat</span>
-        </div>
-        <div className="space-x-6 font-medium">
-          <Link to="/" className="hover:text-gray-300">Home</Link>
-          <Link to="/sobre" className="hover:text-gray-300">Quem Somos</Link>
-          <Link to="/vagas" className="hover:text-gray-300">Vagas</Link>
-          <Link to="/contato" className="hover:text-gray-300">Contato</Link>
-          <Link to="/login" className="hover:text-gray-300">Login</Link>
+        <a href="/" className="flex items-center space-x-3">
+          <img src="https://i.ibb.co/R5pm9P0/Logo.png" alt="Logo Contrat" className="h-10 w-auto" />
+        </a>
+        <div className="flex gap-1 font-medium">
+          <Link to="/" className={linkCls(pathname === "/")}>Início</Link>
+          <Link to="/sobre" className={linkCls(pathname === "/sobre")}>Quem Somos</Link>
+          <Link to="/vagas" className={linkCls(pathname === "/vagas")}>Vagas</Link>
+          <Link to="/contato" className={linkCls(pathname === "/contato")}>Contato</Link>
+          <Link to="/login" className={linkCls(pathname === "/login")}>Admin</Link>
         </div>
       </div>
     </nav>
